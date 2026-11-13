@@ -4,7 +4,7 @@ Instant, restart-free in-app language switching for iOS — tap a language and t
 **entire app** changes immediately. Powered by the Observation framework (iOS 17+)
 and works with both legacy `.strings` and modern **String Catalogs (`.xcstrings`)**.
 
-[![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
+[![Swift](https://img.shields.io/badge/Swift-6.2+-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/iOS-17%2B-blue.svg)](https://developer.apple.com/ios/)
 [![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
@@ -24,6 +24,8 @@ and works with both legacy `.strings` and modern **String Catalogs (`.xcstrings`
 ```swift
 .package(url: "https://github.com/anvyxhq/Localization.git", branch: "main")
 ```
+
+> The latest tagged release predates the current `Anvyx*` module names, so depend on `main` until the next tagged release.
 
 ## Setup
 
@@ -80,7 +82,7 @@ language — no app relaunch. Pass `systemWide: false` to limit switching to
 
 ## Requirements
 
-- iOS 17+ · Swift 5.9+
+- iOS 17+ · Swift 6.2+ (Xcode 26+)
 
 ## License
 
