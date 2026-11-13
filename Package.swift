@@ -17,7 +17,11 @@ let package = Package(
         .library(name: "AnvyxLocalizationKit", targets: ["AnvyxLocalizationKit"]),
     ],
     targets: [
-        .target(name: "AnvyxLocalizationKit", swiftSettings: concurrencyBaseline),
+        .target(
+            name: "AnvyxLocalizationKit",
+            resources: [.process("PrivacyInfo.xcprivacy")],
+            swiftSettings: concurrencyBaseline
+        ),
         .testTarget(
             name: "AnvyxLocalizationKitTests",
             dependencies: ["AnvyxLocalizationKit"],

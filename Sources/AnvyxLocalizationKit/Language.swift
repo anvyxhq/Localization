@@ -9,7 +9,7 @@ import Foundation
 
 /// A selectable language, with names and a flag for building pickers.
 public struct Language: Identifiable, Hashable, Sendable {
-    /// Language code, e.g. "en", "vi".
+    /// Language code (BCP-47), e.g. "en", "vi", "zh-Hant", "pt-BR".
     public let code: String
 
     public var id: String { code }
@@ -22,17 +22,19 @@ public struct Language: Identifiable, Hashable, Sendable {
 
     /// The language's name in the user's current UI language (e.g. "Vietnamese").
     public func displayName(in locale: Locale = .current) -> String {
-        locale.localizedString(forLanguageCode: code)?.capitalized ?? code
+        (locale.localizedString(forIdentifier: code) ?? locale.localizedString(forLanguageCode: code))?.capitalized ?? code
     }
 
     /// The language's name written in itself (e.g. "Tiếng Việt").
     public var nativeName: String {
-        locale.localizedString(forLanguageCode: code)?.capitalized ?? code
+        (locale.localizedString(forIdentifier: code) ?? locale.localizedString(forLanguageCode: code))?.capitalized ?? code
     }
 
     /// A representative flag emoji for the language.
     public var flag: String {
-        Self.flags[code] ?? "🏳️"
+        Self.flags[code]
+            ?? Locale.Language(identifier: code).languageCode.flatMap { Self.flags[$0.identifier] }
+            ?? "🏳️"
     }
 
     private static let flags: [String: String] = [

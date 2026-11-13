@@ -25,3 +25,12 @@ DetailView().localizedLanguage("ja")      // this screen only
 ### Views
 - ``LocalizedText``
 - ``LanguagePicker``
+
+### Format safety and overrides
+- ``FormatSignature``
+- ``LocalizationManager/setOverrides(_:protectedKeys:)``
+- ``LocalizationManager/OverrideRejection``
+
+### Checking string tables
+- ``CatalogConsistency``
+- ``CatalogProblem``
